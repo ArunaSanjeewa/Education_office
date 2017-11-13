@@ -1,0 +1,99 @@
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Add to Zonal Director
+    </h1>
+
+    <ol class="breadcrumb" align="right">
+        <li><a href="#"> Manage Assets</a></li>
+
+
+        <li class="active">Insert Assets Master Data</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-8">
+            <!-- general form elements -->
+            <div class="box box-primary">
+                <!-- /.box-header -->
+                <form name="accoutForm" id="accoutForm"  >
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Request No <span class="text-red">*</span> :</label>
+                            <input required type="text"  class="form-control" ng-model="Req_No" name="Req_No" >
+                        </div>
+                        <div class="form-group">
+                            <label>Full Name <span class="text-red">*</span> :</label>
+                            <input required type="text"  class="form-control" ng-model="account.name" name="full_name" placeholder="full name">
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label>Occupation:</label>
+                                <select required class="form-control" ng-model="account.occupation" >
+                                    <!--<option value="" ng-show="false"></option>-->
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="opel">Opel</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Occupation place:</label>
+                                <input required type="text"  class="form-control" ng-model="account.occupation_place" name="Occup_place" placeholder="Occupation place"></textarea>
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <label>Telephone NO:</label>
+                                <input required type="number"  class="form-control" ng-model="account.tele_no" name="Tel_No" placeholder="Telephone No"></textarea>
+
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div class="row form-group">
+
+                            <div class="col-md-4">
+                                <label>Address:</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter ..." ng-model="account.address"  name="address"></textarea>
+
+                            </div>
+                            <div class="col-md-8">
+                                <label>Reason:</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter ..."  name="address" ng-model="account.reason"></textarea>
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" id="regButton" value="acc" ng-model="account.acc" class="btn bg-blue flat btn-primary"
+                                ng-click="Add_Account(acc)" style="width:69%"
+                                enter-pressed="Add_Account()">
+                            Register
+                        </button>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /.row -->
+</section>

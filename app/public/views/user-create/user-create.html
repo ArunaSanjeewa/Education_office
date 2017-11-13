@@ -1,0 +1,103 @@
+<section class="content-header">
+    <h1>
+        Creat User
+    </h1>
+
+    <ol class="breadcrumb" align="right">
+        <li><a href="#"> Manage Assets</a></li>
+
+
+        <li class="active">Insert Assets Master Data</li>
+    </ol>
+</section>
+
+<div class="col-md-8">
+    <div class="row">
+
+        <div class="box box-primary">
+            <div class="box-body">
+                <form action="/signup" method="post" name="myForm">
+                    <div class="form-group has-feedback">
+                        <input required type="text" class="form-control" placeholder="User name" name="fullName">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input required type="email" class="form-control" placeholder="Email" ng-model="user.email" name="email">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+
+
+
+                    <div class="form-group has-feedback">
+                        <input required type="password" id="password" name="password" ng-model="password" placeholder="Password" class="form-control"
+                        />
+                    </div>
+                    <div class="form-group" style="height: 30px">
+                        <input required type="password" id="password2" name="password2" ng-model="password2" pw-check="password" placeholder="Retype password"
+                               class="form-control" />
+                        <div class="msg-block has-error" ng-show="password!=password2">
+                        <span class="help-block" ng-show="password!=password2"><small>Passwords don't match.</small></span>
+                        </div>
+                        <!--<div class="msg-block has-error" ng-show="myForm.$error">-->
+                            <!--<span class="help-block" ng-show="myForm.password2.$error.pwmatch"><small>Passwords don't match.</small></span>-->
+                        <!--</div>-->
+                    </div>
+                    <br>
+                    <!-- <div class="form-group">
+                        <label>Role:</label>
+                        <select required class="form-control" ng-model="role1" placeholder="Select Role" name="roleselect" ng-options="v.Role for v in role track by v._id"></select>
+                    </div> -->
+                    <div class="form-group has-feedback">
+                        <label>Department:</label>
+                        <select required class="form-control" ng-model="department" placeholder="Password" name="department" >
+                            <option value="" ng-show="false"></option>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="supre_select" value="1" id="type">Superuser</label>
+                    </div>
+
+
+                    <!--<span class="glyphicon glyphicon-log-in form-control-feedback"></span>-->
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <!--<div class="checkbox icheck">-->
+                            <!--<label>-->
+                            <!--<input type="checkbox"> I agree to the <a href="#">terms</a>-->
+                            <!--</label>-->
+                            <!--</div>-->
+                        </div>
+                        <!-- /.col -->
+                        <div align="right" class="col-xs-4">
+                            <button type="submit" class="btn btn-primary bg-blue btn-flat" ng-click="creatUser(user)" ng-disabled="password!=password2">
+                                Register
+                            </button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="small-box bg-teal">
+        <div class="inner">
+            <h3>{{UserCount | number }}</h3>
+            <!--This is registerKeg count-->
+
+            <p>Total Users</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-person-add"></i>
+        </div>
+        <a href="#!/all-users" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+    </div>
+</div>

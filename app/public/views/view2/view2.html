@@ -1,0 +1,125 @@
+<section>
+
+  <ol class="breadcrumb" align="right">
+    <li><a href="#"> Manage Assets</a></li>
+
+
+    <li class="active">Insert Assets Master Data</li>
+  </ol>
+</section>
+
+<div class=" col-md-8">
+  <!-- general form elements -->
+  <div class="box" style="font-size:120%" >
+
+    <div class="box-header">
+
+      <h3 class="box-title" style="font-family: Roboto">Add to Account Department</h3>
+
+    </div>
+    <div class="box box-primary">
+
+      <!-- /.box-header -->
+      <!-- form start -->
+      <div class="box-body">
+        <form role="form" class="form-group" id="uploadForm"
+              enctype="multipart/form-data"
+              action="upload"
+              method="post"
+        >
+          <div class="box-body">
+            <div class="form-group">
+              <label>Full Name <span class="text-red">*</span> :</label>
+              <input required type="text"  class="form-control" name="full_name" placeholder="full name">
+            </div>
+            <div class="row form-group">
+              <div class="col-md-4">
+                <label>Occupation:</label>
+                <select required class="form-control" ng-model="assetNew.Type" ng-options="item for item in typesNew" ng-selected="$first">
+                  <option value="" ng-show="false"></option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label>Capacity:</label>
+                <select required class="form-control" ng-model="assetNew.Capacity"
+                        ng-options="item for item in capacitiesNew">
+                  <option value="" ng-show="false"></option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label>Use Type:</label>
+                <select required class="form-control" ng-model="assetNew.ExportType"
+                        ng-options="item for item in usetypesNew">
+                  <option value="" ng-show="false"></option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="form-group col-md-4">
+                <label>Asset Type <span class="text-red">*</span>:</label>
+                <div class="radio">
+                  <label><input type="radio" required name="optradio" value="KEG" id="aType">KEG</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" required name="optradio" value="CO2" id="aType1">CO2</label>
+                </div>
+
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="capacity">Capacity <span class="text-red">*</span>:</label>
+                <div class="radio">
+                  <label><input type="radio" required name="optradioCapacity" value="19L" id="capacity">19L</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" required name="optradioCapacity" value="30L" id="capacity1">30L</label>
+                </div>
+
+              </div>
+              <div class="form-group col-md-4">
+                <label>Type <span class="text-red">*</span>:</label>
+                <div class="radio">
+                  <label><input type="radio" required name="optradioType" value="EXPORT" id="type">Export</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" required name="optradioType" value="LOCAL" id="type1">Local</label>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label>Select File <span class="text-red">*</span>:</label>
+              <input required type="file" name="file" />
+
+            </div>
+          </div>
+
+          <div class="box-footer">
+            <input type="submit" value="Upload" name="submit" class="btn bg-blue flat btn-block">(Click upload button
+            after attach excel
+            file)
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- /.box -->
+
+
+</div>
+
+
+
+
+
+
+

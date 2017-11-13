@@ -1,0 +1,138 @@
+<section class="content-header">
+    <h1>
+        All Occupation<small>(Display full details of suppliers)</small>
+    </h1>
+
+    <ol class="breadcrumb" align="right">
+        <li><a href="#"> Manage Assets</a></li>
+
+
+        <li class="active">Insert Assets Master Data</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                    <div class="row">
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <table class="table">
+                                <thead>
+                                <tr class="bg-gray">
+                                    <th>#</th>
+                                    <th>Occupation Name</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tr ng-repeat="item in allItems |startFrom : (currentPage-1)*itemsPerPage | limitTo:itemsPerPage">
+                                    <td>{{$index+1+(currentPage-1)*10}}</td>
+                                    <td>{{item.name}}</td>
+                                    <td>
+                                        <button class="btn btn-xs">
+                                            <i class="ion-trash-b" data-toggle="modal"
+                                               data-target="#confirm-delete" ng-click="removeSupplier(item)" ng-confirm-message="Are you sure want to delete?"></i>
+                                        </button>
+                                        <button class="btn btn-xs" ng-click="editClick(item)">
+                                            <i class="ion-edit" data-toggle="modal"
+                                               data-target="#myModal"></i>
+                                        </button>
+
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <pager total-items="totalItems" ng-model="currentPage"
+                                   items-per-page="itemsPerPage"></pager>
+                            <hr/>
+
+                            <!--<pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" items-per-page="itemsPerPage"></pagination>-->
+                            <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize"
+                                        class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"
+                                        items-per-page="itemsPerPage"></pagination>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+    </section>
+<section class="content-header">
+    <h1>
+       Add New Occupation<small>(Create new occupation)</small>
+    </h1>
+</section>
+<section class="content">
+<div class="row">
+    <div class="col-xs-12 ">
+        <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form name="createForm" role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input required type="text" class="form-control"
+                                   id="name" ng-model="formData.name">
+                        </div>
+                        <div class="box-footer ">
+                            <button type="submit" class="btn btn-primary"
+                                    ng-click="createOccupation(createForm.$valid)">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title fontRoboto" id="myModalLabel">Update Supplier</h4>
+            </div>
+            <div class="box box-primary">
+            </div>
+            <div class="modal-body">
+                <form name="updateForm" role="form">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>Name:</label>
+                            <input required type="text" class="form-control"
+                                   id="name" ng-model="updateData.name">
+                        </div>
+                        <div class="box-footer ">
+                            <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                                    ng-click="updateSupplier(updateForm.$valid)">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
